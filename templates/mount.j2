@@ -1,0 +1,12 @@
+[Unit]
+Description={{ glfs_unit_description | default("GlusterFS volume {}".format(glfs_volume)) }}
+Requires=glusterd.service remote-fs-pre.target local-fs.target
+
+[Mount]
+What=localhost:/{{ glfs_volume }}
+Where={{ glfs_mount_point }}
+Type=glusterfs
+TimeoutSec={{ glfs_mount_timeout }}
+
+[Install]
+WantedBy=multi-user.target
