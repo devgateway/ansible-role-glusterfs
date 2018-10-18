@@ -1,30 +1,32 @@
 # devgateway.glusterfs
 
-Role description.
+Configure a GlusterFS volume. This role intentionally doesn't touch firewall settings, see example
+for configuration reference.
 
 ## Required Variables
 
 ### `glfs_mount_point`
 
-Variable description.
+Where the GlusterFS volume will be mounted.
 
 ## Optional Variables
 
 ### `glfs_brick_root`
 
-Variable description.
+The directory where bricks will be stored in subdirectories. Must not be on a root partition, or
+setup will fail.
 
 Default: ``` /var/lib/glusterfs ```
 
 ### `glfs_mount_timeout`
 
-Variable description.
+Configures the time to wait for the mount command to finish. See systemd.mount(5).
 
 Default: 10
 
 ### `glfs_package`
 
-Variable description.
+Name of GlusterFS server package.
 
 Default:
 
@@ -34,13 +36,13 @@ Default:
 
 ### `glfs_systemd_dir`
 
-Variable description.
+Systemd user configuration directory.
 
 Default: ``` /etc/systemd/system ```
 
 ### `glfs_volume`
 
-Variable description.
+Name of the GlusterFS volume.
 
 Default: ``` vol0 ```
 
@@ -79,4 +81,3 @@ GPLv3+
 ## Author Information
 
 Copyright 2018, Development Gateway
-
