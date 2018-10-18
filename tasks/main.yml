@@ -9,3 +9,14 @@
     state: directory
   tags:
     - glusterfs
+
+- name: Create GlusterFS volume
+  gluster_volume:
+    state: present
+    name: "{{ glfs_volume }}"
+    cluster: "{{ glfs_hosts | default(ansible_play_batch) }}"
+    bricks: "{{ glfs_brick_root }}/{{ glfs_volume }}"
+    replicas: "{{ (glfs_hosts | default(ansible_play_batch)) | length }}"
+  run_once: true
+  tags:
+    - glusterfs
