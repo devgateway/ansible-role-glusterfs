@@ -2,3 +2,10 @@
 - name: Install GlusterFS server package
   package:
     name: "{{ glfs_package[ansible_os_family] }}"
+
+- name: Create brick directory
+  file:
+    path: "{{ glfs_brick_root }}/{{ glfs_volume }}"
+    state: directory
+  tags:
+    - glusterfs
