@@ -1,0 +1,23 @@
+galaxy_info:
+  author: Development Gateway
+  description: Configure a GlusterFS volume
+  company: Development Gateway
+  license: GPLv3
+  min_ansible_version: 1.9
+  platforms:
+  - name: Debian
+    versions:
+      - jessie
+      - stretch
+      - buster
+  - name: EL
+    versions:
+      - 7
+  galaxy_tags:
+    - glusterfs
+    - gluster
+    - cluster
+    - storage
+    - filesystem
+
+dependencies: []
