@@ -24,3 +24,20 @@
   run_once: true
   tags:
     - glusterfs
+
+- name: Install Systemd mount unit
+  template:
+    src: mount.j2
+    dest: "{{ glfs_systemd_dir }}/{{ glfs_unit }}"
+    mode: 0644
+  register: unit_state
+  tags:
+    - glusterfs
+    - systemd
+
+- name: Reload Systemd daemon
+  command: systemctl daemon-reload
+  when: unit_state.changed
+  tags:
+    - glusterfs
+    - systemd
