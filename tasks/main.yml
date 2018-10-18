@@ -1,4 +1,8 @@
 ---
+- name: Determine mount unit name
+  set_fact:
+    glfs_unit: "{{ glfs_mount_point[1:] | replace('/', '-') }}.mount"
+
 - name: Install GlusterFS server package
   package:
     name: "{{ glfs_package[ansible_os_family] }}"
