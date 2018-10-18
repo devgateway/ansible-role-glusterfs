@@ -41,3 +41,12 @@
   tags:
     - glusterfs
     - systemd
+
+- name: Enable and start GlusterFS mount
+  service:
+    name: "{{ glfs_unit }}"
+    enabled: true
+    state: started
+  tags:
+    - glusterfs
+    - systemd
