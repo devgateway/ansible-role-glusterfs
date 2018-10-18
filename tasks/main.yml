@@ -14,6 +14,14 @@
   tags:
     - glusterfs
 
+- name: Start GlusterFS service
+  service:
+    name: glusterd
+    state: started
+  tags:
+    - glusterfs
+    - systemd
+
 - name: Create GlusterFS volume
   gluster_volume:
     state: present
