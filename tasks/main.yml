@@ -1,0 +1,4 @@
+---
+- name: Install GlusterFS server package
+  package:
+    name: "{{ glfs_package[ansible_os_family] }}"
