@@ -1,0 +1,5 @@
+---
+glfs_package:
+  RedHat: glusterfs-server
+  Debian: glusterfs-server
+glfs_brick_root: /var/lib/glusterfs
