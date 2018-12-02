@@ -6,3 +6,4 @@ glfs_brick_root: /var/lib/glusterfs
 glfs_systemd_dir: /etc/systemd/system
 glfs_volume: vol0
 glfs_mount_timeout: 10
+glfs_create_unit: true

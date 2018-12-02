@@ -18,6 +18,12 @@ setup will fail.
 
 Default: ``` /var/lib/glusterfs ```
 
+### `glfs_create_unit`
+
+Whether to create, enable, and start a Systemd mount for the volume.
+
+Default: ``` true ```
+
 ### `glfs_mount_timeout`
 
 Configures the time to wait for the mount command to finish. See systemd.mount(5).

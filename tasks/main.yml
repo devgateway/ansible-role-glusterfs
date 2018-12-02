@@ -39,13 +39,14 @@
     dest: "{{ glfs_systemd_dir }}/{{ glfs_unit }}"
     mode: 0644
   register: unit_state
+  when: glfs_create_unit
   tags:
     - glusterfs
     - systemd
 
 - name: Reload Systemd daemon
   command: systemctl daemon-reload
-  when: unit_state.changed
+  when: glfs_create_unit and unit_state.changed
   tags:
     - glusterfs
     - systemd
@@ -55,6 +56,7 @@
     name: "{{ glfs_unit }}"
     enabled: true
     state: started
+  when: glfs_create_unit
   tags:
     - glusterfs
     - systemd
