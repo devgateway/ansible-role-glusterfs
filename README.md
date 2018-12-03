@@ -3,12 +3,6 @@
 Configure a GlusterFS volume. This role intentionally doesn't touch firewall settings, see example
 for configuration reference.
 
-## Required Variables
-
-### `glfs_mount_point`
-
-Where the GlusterFS volume will be mounted.
-
 ## Optional Variables
 
 ### `glfs_brick_root`
@@ -23,6 +17,10 @@ Default: ``` /var/lib/glusterfs ```
 Whether to create, enable, and start a Systemd mount for the volume.
 
 Default: ``` true ```
+
+### `glfs_mount_point`
+
+Where the GlusterFS volume will be mounted. If `glfs_create_unit` is `true`, this is required.
 
 ### `glfs_mount_timeout`
 

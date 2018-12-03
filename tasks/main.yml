@@ -2,6 +2,7 @@
 - name: Determine mount unit name
   set_fact:
     glfs_unit: "{{ glfs_mount_point[1:] | replace('/', '-') }}.mount"
+  when: glfs_create_unit
 
 - name: Install GlusterFS server package
   package:
