@@ -3,14 +3,28 @@
 Configure a GlusterFS volume. This role intentionally doesn't touch firewall settings, see example
 for configuration reference.
 
+GlusterFS is picky about mountpoints:
+
+1. A brick should be on a separate mountpoint.
+
+2. A brick should not be in the file system root, but in a subdirectory.
+
+Therefore, the role creates bricks at paths like `/srv/gluster/${glfs_volume}/brick`, so that you
+can have a block device mounted at `/srv/gluster/${glfs_volume}`.
+
 ## Optional Variables
 
 ### `glfs_brick_root`
 
-The directory where bricks will be stored in subdirectories. Must not be on a root partition, or
-setup will fail.
+The directory where bricks will be stored in subdirectories.
 
-Default: ``` /var/lib/glusterfs ```
+Default: ``` /srv/gluster ```
+
+### `glfs_brick_subdir`
+
+The data subdirectory for each brick.
+
+Default: ``` brick ```
 
 ### `glfs_create_unit`
 

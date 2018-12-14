@@ -2,7 +2,8 @@
 glfs_package:
   RedHat: glusterfs-server
   Debian: glusterfs-server
-glfs_brick_root: /var/lib/glusterfs
+glfs_brick_root: /srv/gluster
+glfs_brick_subdir: brick
 glfs_systemd_dir: /etc/systemd/system
 glfs_volume: vol0
 glfs_mount_timeout: 10

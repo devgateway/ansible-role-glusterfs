@@ -10,7 +10,7 @@
 
 - name: Create brick directory
   file:
-    path: "{{ glfs_brick_root }}/{{ glfs_volume }}"
+    path: "{{ '/'.join([glfs_brick_root, glfs_volume, glfs_brick_subdir]) }}"
     state: directory
   tags:
     - glusterfs
@@ -28,7 +28,7 @@
     state: present
     name: "{{ glfs_volume }}"
     cluster: "{{ glfs_hosts | default(ansible_play_batch) }}"
-    bricks: "{{ glfs_brick_root }}/{{ glfs_volume }}"
+    bricks: "{{ '/'.join([glfs_brick_root, glfs_volume, glfs_brick_subdir]) }}"
     replicas: "{{ (glfs_hosts | default(ansible_play_batch)) | length }}"
   run_once: true
   tags:
