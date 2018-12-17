@@ -27,9 +27,9 @@
   gluster_volume:
     state: present
     name: "{{ glfs_volume }}"
-    cluster: "{{ glfs_hosts | default(ansible_play_batch) }}"
+    cluster: "{{ ansible_play_batch }}"
     bricks: "{{ '/'.join([glfs_brick_root, glfs_volume, glfs_brick_subdir]) }}"
-    replicas: "{{ (glfs_hosts | default(ansible_play_batch)) | length }}"
+    replicas: "{{ glfs_replicas | default(ansible_play_batch | length) }}"
   run_once: true
   tags:
     - glusterfs

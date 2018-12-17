@@ -51,6 +51,11 @@ Default:
 * **RedHat**: ``` glusterfs-server ```
 * **Debian**: ``` glusterfs-server ```
 
+### `glfs_replicas`
+
+Number of replicas for the volume.
+
+Default: `ansible_play_batch | length`
 
 ### `glfs_systemd_dir`
 
